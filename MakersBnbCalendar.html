@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='../css/core.css' rel='stylesheet' />
+<link href='../css/daygrid.css' rel='stylesheet' />
+<link href='../css/personalised.css' rel='stylesheet' />
+<script src='../core.js'></script>
+<script src='../daygrid.js'></script>
+<script src='../interaction.js'></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'interaction', 'dayGrid' ],
+      defaultDate: Date.now(),
+      nav_links: true,
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'Property 1',
+          start: '2019-12-09',
+          end: '2019-12-12T12:00:00'
+        },
+        {
+          groupId: 1,
+          title: 'Property 2',
+          start: '2019-12-10',
+          end: '2019-12-13T12:00:00'
+        }
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+
+</head>
+<body>
+  <div class="row">
+    <div class="column" style="background-color:rgb(255, 255, 255);">
+      <div id='calendar'>
+      </div>
+      
+    </div>
+        
+    <div class="column" style="background-color:rgb(255, 255, 255);">
+      <h3>Start Date</h3>
+      <label> Day </label>
+      <select class="selectDateIn" id="inputDay">
+        <option selected>Day...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+  
+      <label> Month </label>
+      <select class="selectDateIn" id="inputMonth">
+        <option selected>Month...</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+        
+      </select>
+      <h3>End Date</h3>
+      <label> Day </label>
+      <select class="selectDateOut" id="outputDay">
+        <option selected>Day...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+  
+      <label> Month </label>
+      <select class="selectDateOut" id="outputMonth">
+        <option selected>Month...</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+    </div>
+    <button id = "submitDates"> Book a date</button>
+  </div>
+</body>
+</html>
