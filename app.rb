@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative './lib/bookings.rb'
+require_relative './lib/property.rb'
 
 class MakersAirBnB < Sinatra::Base
 
@@ -10,6 +11,8 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/spaces' do 
+    @properties = Property.all
+    erb :spaces
   end
 
   get '/spaces/new' do

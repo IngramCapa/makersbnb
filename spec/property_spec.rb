@@ -11,7 +11,7 @@ describe Property do
             Property.create(prop_name: "edward house", prop_description: "dogs trust in angel", 
             price_per_night: "30", startdate: "2019-10-11", enddate: "2020-12-31")
             Property.create(prop_name: "parliament", prop_description: "nice river view", 
-            price_per_night: "100", startdate: "1870-10-11", enddate: "150-12-31")
+            price_per_night: "100", startdate: "1870-10-11", enddate: "2150-12-31")
 
             properties = Property.all
 

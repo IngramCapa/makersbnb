@@ -1,0 +1,16 @@
+<center>
+<h2>Spaces</h2>
+
+<ul style="list-style-type:none">
+  <% @properties.each do |property| %>
+    <li class="property" id="property-<%= property.id %>">
+        <%= property.prop_name %> 
+        <%= property.prop_description%> 
+        <%= property.price_per_night%> 
+        <%= property.startdate%> 
+        <%= property.enddate%> 
+    </li>
+  <% end %>
+</ul>
+
+</center>
