@@ -1,12 +1,11 @@
-feature 'signing up' do
+feature 'signing in' do
 
-  scenario 'a user can sign up' do
-      visit '/views/index.erb'
-      expect(current_path).to eq '/users/index'
+  scenario 'a user can sign in' do
+      visit '/sessions/new'
       fill_in('email', with: "test@mail.com")
       fill_in('password', with: 'password')
       click_button("Submit")
-      expect(current_path).to eq '/space/new'
+      expect(current_path).to eq '/spaces'
   end
 end
 
