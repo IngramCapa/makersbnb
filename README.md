@@ -3,7 +3,7 @@
 Makers AirBnb Challenge 
 -
 
-[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story) | [Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
+[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story) | [Database Setup](#Database) | [Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
 
 ## <a name="Outline">Outline</a>
  
@@ -73,7 +73,7 @@ when I receive a hire request,
 I want to be able to confirm or deny the request. 
 
 ```
-## <a name="Databse">How to set up the database</a>
+## <a name="Database">How to set up the database</a>
 
 Connect to `psql` and create the `makersbnb_test` and `makersbnb` databases:
 
