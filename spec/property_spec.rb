@@ -3,6 +3,7 @@ require 'property'
 describe Property do
 
     describe ".all" do
+
         it "returns all properties" do
             # add test data
             property = Property.create(prop_name: "makers house", prop_description: "old building in aldgate east", 

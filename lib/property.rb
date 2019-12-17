@@ -3,8 +3,7 @@ require './spec/database_helpers'
 
 class Property
 
-    attr_reader :id, :prop_name, :prop_description, :price_per_night, :startdate, :enddate, 
-    # :owner_id
+    attr_reader :id, :prop_name, :prop_description, :price_per_night, :startdate, :enddate
     
     def initialize(id:, prop_name:, prop_description:, price_per_night:, startdate:, enddate:)
         @id = id
@@ -13,18 +12,17 @@ class Property
         @price_per_night = price_per_night
         @startdate = startdate
         @enddate = enddate
-        # @owner_id = owner_id
     end
 
     def self.all
 
         connection = db_connection
 
-        result = connection.exec("SELECT prop_name, prop_description, price_per_night, startdate, enddate FROM properties;")
-        result.map { |property| Property.new(id: property['id'], prop_name: property['prop_name'], 
-        prop_description: property['prop_description'], price_per_night: property['price_per_night']),
-        startdate: property['startdate'], enddate: property['enddate']
-        # , owner_id: property['owner_id']
+        result = connection.exec("SELECT * FROM properties;")
+        result.map { |
+            property| Property.new(id: property['id'], prop_name: property['prop_name'], 
+            prop_description: property['prop_description'], price_per_night: property['price_per_night'],
+            startdate: property['startdate'], enddate: property['enddate'])
         }
     end
 
