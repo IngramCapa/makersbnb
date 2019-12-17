@@ -1,27 +1,29 @@
 require 'sinatra/base'
+require_relative './lib/bookings.rb'
 
-class MakersAirBnB < Sinatra::base
+class MakersAirBnB < Sinatra::Base
 
   get '/' do
   end
 
-  get '/sessions/new'
+  get '/sessions/new' do
   end
 
   get '/spaces' do 
   end
 
-  get '/spaces/new'
+  get '/spaces/new' do
   end
 
-  get '/spaces/dates'
+  get '/spaces/dates' do
   end
 
-  get '/requests'
-  erb :'requests'
+  get '/requests' do
+    @bookings = Bookings.new
+    erb :'requests'
   end
 
-  get '/requests/confirm'
+  get '/requests/confirm' do
   end
 
   run! if app_file == $0
