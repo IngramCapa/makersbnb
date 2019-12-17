@@ -74,3 +74,13 @@ I want to be able to confirm or deny the request.
 
 ```
 
+## <a name="Databse">How to set up the database</a>
+
+Connect to `psql` and create the `makersbnb_test` and `makersbnb` databases:
+
+```
+CREATE DATABASE makersbnb;
+CREATE DATABASE makersbnb_test;
+```
+
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
