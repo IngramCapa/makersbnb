@@ -1,10 +1,10 @@
 require 'sinatra/base'
 
-class MakersAirBnB < Sinatra::base
+class MakersAirBnB < Sinatra::Base
 
-  get '/' do
+  # get '/' do
 
-  end
+  # end
 
   
 
