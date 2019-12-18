@@ -86,25 +86,24 @@ To set up the appropriate tables, connect to each database in `psql` and run the
 
 ## <a name="Tables">Tables</a>
 
-```
 Users:
 
- id | user_name | email | password_digest 
-----+-----------+-------+-----------------
-    |           |       |   
+| id     | user_name | email | password_digest |
+|--------|-----------|-------|-----------------|
+|        |           |       |                 | 
 
 Properties:
 
- id |  prop_name   |       prop_description       | price_per_night | startdate  |  enddate   
-----+--------------+------------------------------+-----------------+------------+------------
-    |              |                              |                 |            | 
-    
-Bookings:
+| id     | prop_name | prop_description | price_per_night | startdate | enddate | owner_id |
+|--------|-----------|------------------|-----------------|-----------|---------|----------|
+|        |           |                  |                 |           |         |          |
 
- id |  propr_id  |  client_id  | owner_id |  startdate  |  enddate  | length_of_stay | total_price | confirmation 
-----+------------+-------------+----------+-------------+-----------+----------------+-------------+---------------
-    |            |             |          |             |           |                |             |
+Bookings: 
 
-```
+| id |  propr_id  |  client_id  | owner_id |  startdate  |  enddate  | length_of_stay | total_price | confirmation |
+|----|------------|-------------|----------|-------------|-----------|----------------|-------------|--------------|
+|    |            |             |          |             |           |                |             |              |  
+
+
 
 
