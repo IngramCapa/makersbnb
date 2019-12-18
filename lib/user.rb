@@ -1,5 +1,6 @@
 require 'pg'
 require 'bcrypt'
+require './spec/database_helpers'
 
 class User
 
