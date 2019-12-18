@@ -6,6 +6,6 @@ feature "signing up" do
     fill_in('password', with: 'password')
     fill_in('name', with: 'name3')
     click_button("Submit")
-    expect(current_path).to eq '/sign_up'
+    expect(current_path).to eq '/spaces'
 end
 end

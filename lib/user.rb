@@ -13,12 +13,12 @@ class User
   end
 
 
-  def self.sign_up(user_name:, email:, password:)
+  def self.sign_up(name:, email:, password:)
     password_digest = BCrypt::Password.create(password)
     connection = db_connection
     connection.prepare('statement1', 'INSERT INTO users(user_name, email, password_digest) VALUES($1, $2, $3) 
       RETURNING id, user_name, email, password_digest')
-    result = connection.exec_prepared('statement1', [user_name, email, password_digest])
+    result = connection.exec_prepared('statement1', [name, email, password_digest])
 
     User.new(id: result[0]['id'], name: result[0]['user_name'], email: result[0]['email'], password_digest: result[0]['password_digest'])
   end
