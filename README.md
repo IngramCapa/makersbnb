@@ -100,9 +100,9 @@ Properties:
     
 Bookings:
 
- id |  propr_id  |  client_id  | startdate  |  enddate  | length_of_stay | total_price | confirmation 
-----+------------+-------------+------------+-----------+----------------+-------------+---------------
-    |            |             |            |           |                |             | 
+ id |  propr_id  |  client_id  | owner_id |  startdate  |  enddate  | length_of_stay | total_price | confirmation 
+----+------------+-------------+----------+-------------+-----------+----------------+-------------+---------------
+    |            |             |          |             |           |                |             |
 
 ```
 
