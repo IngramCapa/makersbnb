@@ -91,6 +91,7 @@ Users:
 
  id | user_name | email | password_digest 
 ----+-----------+-------+-----------------
+    |           |       |   
 
 Properties:
 
