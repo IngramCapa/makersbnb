@@ -120,10 +120,13 @@ button:hover {
   
 <section class="section-contact" id='contact'>
 
-<form class="contact-form" action="/users/sign_up" method="POST">
+<form class="contact-form" action="/sign_up" method="POST">
  <h1>Sign Up</h1>
   <p>Please fill in this form to create an account.</p>
   <hr>
+
+  <label for="name"><b>Name</b></label>
+  <input type="text" placeholder="Name" name="name" required>
 
   <label for="email"><b>Email</b></label>
   <input type="text" placeholder="Enter Email" name="email" required>
@@ -132,7 +135,7 @@ button:hover {
   <input type="password" placeholder="Enter Password" name="password" required>
 
  
-  <button type="submit" class="contact-form-btn" value="sign_Up">Sign Up</button>
+  <button type="submit" class="contact-form-btn" value="Submit">Submit</button>
 
 </form>
  </section>

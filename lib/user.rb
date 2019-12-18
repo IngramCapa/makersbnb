@@ -3,11 +3,11 @@ require 'bcrypt'
 
 class User
 
-  attr_reader :id, :user_name, :email
+  attr_reader :id, :name, :email
 
-  def initialize(id:, email:, user_name:, password_digest:)
+  def initialize(id:, email:, name:, password_digest:)
     @id = id
-    @user_name = user_name
+    @name = name
     @email = email
     @password_digest = password_digest
   end
@@ -20,7 +20,7 @@ class User
       RETURNING id, user_name, email, password_digest')
     result = connection.exec_prepared('statement1', [user_name, email, password_digest])
 
-    User.new(id: result[0]['id'], user_name: result[0]['user_name'], email: result[0]['email'], password_digest: result[0]['password_digest'])
+    User.new(id: result[0]['id'], name: result[0]['user_name'], email: result[0]['email'], password_digest: result[0]['password_digest'])
   end
 
   
