@@ -6,10 +6,16 @@ class MakersAirBnB < Sinatra::Base
   get '/' do
   end
 
+  post '/' do
+    @@user = User.new(params['name'], params['password'], params['email'])
+    redirect '/spaces'
+  end
+
   get '/sessions/new' do
   end
 
   get '/spaces' do 
+    erb :'spaces'
   end
 
   get '/spaces/new' do
