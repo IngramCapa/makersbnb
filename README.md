@@ -3,7 +3,7 @@
 Makers AirBnb Challenge 
 -
 
-[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story) | [Database Setup](#Database) | [Tables](#Tables) |[Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
+[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story)| [Technologies used](#Technologies) | [Database Setup](#Database) | [Tables](#Tables) |[Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
 
 ## <a name="Outline">Outline</a>
  
@@ -25,31 +25,31 @@ cd makersbnb
 ```
 
 As a user, 
-when I visit Maker's Airbnb,
+when I visit MakersBnB,
 I would like to sign up with my email and password.
 
 As a user,
-when I visit Maker's Airbnb,
-I would like to be able to sign in with my account details.
+when I visit MakersBnB,
+I would like to sign in with my account details.
 
 As a user,
-when I'm logged into Maker's Airbnb, 
-I want to see a list of spaces.
+when I'm logged into MakersBnB, 
+I want to see a list of available spaces.
 
 As a user and potential space owner,
-when I'm logged into Maker's Airbnb, 
+when I'm logged into MakersBnB, 
 I would like to list a space.
 
 As a user and space owner,
-when I list a space on Maker's Airbnb,
+when I list a space on MakersBnB,
 I would like to enter details, like a name, description, price, and available dates.
 
 As a user,
-when I've chosen a space i'd like to hire, 
-I want to see the dates the space is available.
+when I've chosen a space I'd like to hire, 
+I want to see the dates the space is available on.
 
 As a user,
-when I've chosen a space and the dates i'd like to book,
+when I've chosen a space and the dates I'd like to book,
 I want to put in a request to hire that space.
 
 As a user,
@@ -73,6 +73,17 @@ when I receive a hire request,
 I want to be able to confirm or deny the request. 
 
 ```
+
+## <a name="Technologies">Technologies used</a>
+
+
+* **Sinatra** framework as our DSL.
+* **Bootstrap** for styling.
+* **BCrypt** for password hashing.
+* **PostgresSQL** as our database.
+* **Capybara** and **Rspec** for testing.
+* **Github** for code collaboration.
+
 ## <a name="Database">How to set up the database</a>
 
 Connect to `psql` and create the `makersbnb_test` and `makersbnb` databases:
