@@ -20,6 +20,7 @@ class MakersAirBnB < Sinatra::Base
     erb :sign_in
   end
 
+
   get '/spaces' do 
   end
 
