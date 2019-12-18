@@ -3,7 +3,7 @@
 Makers AirBnb Challenge 
 -
 
-[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story) | [Database Setup](#Database) | [Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
+[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story) | [Database Setup](#Database) | [Tables](#Tables) |[Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
 
 ## <a name="Outline">Outline</a>
  
@@ -83,3 +83,27 @@ CREATE DATABASE makersbnb_test;
 ```
 
 To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+## <a name="Tables">Tables</a>
+
+```
+Users:
+
+ id | user_name | email | password_digest 
+----+-----------+-------+-----------------
+
+Properties:
+
+ id |  prop_name   |       prop_description       | price_per_night | startdate  |  enddate   
+----+--------------+------------------------------+-----------------+------------+------------
+    |              |                              |                 |            | 
+    
+Bookings:
+
+ id |  propr_id  |  client_id  | startdate  |  enddate  | length_of_stay | total_price | confirmation 
+----+------------+-------------+------------+-----------+----------------+-------------+---------------
+    |            |             |            |           |                |             | 
+
+```
+
+
