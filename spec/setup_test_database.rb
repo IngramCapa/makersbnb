@@ -10,6 +10,6 @@ def setup_test_database
     connection = PG.connect(dbname: 'makersbnb_test')
 
     # Clear the table
-    connection.exec("TRUNCATE users, properties;")
+    connection.exec("TRUNCATE TABLE users CASCADE;")
 
 end

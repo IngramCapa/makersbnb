@@ -6,7 +6,7 @@ feature 'Confirm Booking' do
     expect(page).to have_content "Property Description"
   end
 
-  scerario 'when the user clicks on a space booking request, they should be able to see details of the booking' do
+  scenario 'when the user clicks on a space booking request, they should be able to see details of the booking' do
     visit('/requests')
     click_on 'Villa'
     expect(page).to have_content "From: #{client_id}"
