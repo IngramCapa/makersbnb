@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+.section-contact {
+  background-color: #e5e6e4;
+  background-size: cover;
+  padding: 40px 0;
+  color: #000;
+  overflow: hidden;
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 2rem 0;
+  border: 0;
+  background: #111;
+  padding: 20px 40px;
+  outline: none;
+  color: #ddd;
+  transition: 0.5s;
+}
+
+input:focus {
+  box-shadow: 0 0 10px 4px #34455e;
+}
+
+.btn-ghost,
+button {
+  border: 0;
+  padding: 1rem 2rem;
+  background-color: #445ae3;
+  border-radius: 2rem;
+  margin: 1rem;
+  width: 17rem;
+
+  color: #eee;
+  font-size: 1.4rem;
+  transition: 0.5s;
+}
+
+button:hover {
+  background: #1be42f;
+  cursor: pointer;
+  transition: 1s;
+}

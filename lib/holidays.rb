@@ -21,11 +21,5 @@ class Holidays #Booking Class
   def dayUntil
     @startDate - Date.today
   end
-end
 
-# irb
-holidays = Holidays.new('2019-12-30', '2020-01-11', 5)
-puts "Total Night: #{holidays.calculateNight}"
-puts "Total Price: #{holidays.totalPrice}£"
-puts "CountDown until holidays: #{holidays.dayUntil}"
-puts Date.today
+end

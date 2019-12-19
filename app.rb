@@ -1,21 +1,66 @@
 require 'sinatra/base'
-require 'sinatra'
-require './lib/holidays'
+require_relative './lib/user.rb'
+require_relative './lib/bookings.rb'
+require_relative './lib/user.rb'
+require_relative './lib/property.rb'
+require_relative './lib/requests.rb'
+require_relative './lib/holidays.rb'
 
 class MakersAirBnB < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
-    erb(:calendar)
+    erb :index
+  end
+
+  post '/' do
+    @@user = User.new(params['name'], params['password'], params['email'])
+  end
+  
+  post '/sign_up' do
+    user = User.sign_up(name: params['name'], email: params['email'], password: params['password'])
+    session[:user_id] = user.id
+    redirect '/spaces'
+  end
+
+  get '/sessions/new' do
+    erb :sign_in
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/spaces')
+  end
+
+
+  get '/spaces' do 
+    @properties = Property.all
+    erb :spaces
+  end
+
+  get '/spaces/new' do
+
+  end
+
+  get '/spaces/dates' do
+    erb :calendar
   end
 
   post '/dates' do
     $holiday = Holidays.new(params['startdate'], params['enddate'], 1)
-    redirect '/confirm'
+    redirect '/spaces'
   end
 
-  get '/confirm' do
-    $holiday
-    erb(:confirm)
+  get '/requests' do
+    @bookings = Bookings.new
+    @user_id = 1
+    @requests = Requests.new(@user_id)
+    erb :requests
+  end
+
+  get '/requests/confirm' do
   end
 
   run! if app_file == $0
