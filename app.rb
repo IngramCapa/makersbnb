@@ -20,6 +20,13 @@ class MakersAirBnB < Sinatra::Base
     erb :sign_in
   end
 
+  # added
+  # post '/sessions' do
+  #   user = User.authenticate(email: params[:email], password: params[:password])
+  #   session[:user_id] = user.id
+  #   redirect('/spaces')
+  # end
+
 
   get '/spaces' do 
   end

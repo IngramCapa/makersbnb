@@ -10,4 +10,15 @@ describe User do
       expect(user.email).to eq "name3@mail.com"
     end
   end
+
+
+  describe '.sign_in' do
+
+    it 'returns a user given a correct username and password, if one exists' do
+      user = User.sign_up(name: 'shaf', email: 'test@example.com', password: 'password123')
+      authenticated_user = User.sign_in(email: 'test@example.com', password: 'password123')
+      expect(authenticated_user.id).to eq user.id
+    end
+  end
+
 end
