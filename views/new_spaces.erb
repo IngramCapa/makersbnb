@@ -1,0 +1,85 @@
+<html>
+<head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Makers AirBnB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/spaces">Spaces</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/requests">Requests</a>
+          </li>
+        </ul>
+        <form class="nav-item-sign-out" style="padding-right: 10px;">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/" role="button">Sign Out</a>
+        </form>
+      </div>
+    </nav>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<form class='form' action='/spaces/new' method='post' enctype="multipart/form-data">
+  
+    <center>
+        <br>
+        <br>
+        <h1 class="header">List your space</h1>
+        <br>
+        <br>
+    </center>
+    <center>
+        
+        <div class="form-group">
+        Name
+        <br>
+        <input id='name' type="text" name="name" />
+        </div>
+
+        <div class="form-group">
+        Description
+        <br>
+        <input id='description' type="text" name="description" />
+        </div>
+
+        <div class="form-group">
+        Price per night
+        <br>
+        <input id='price' type="number" name="price" />
+        </div>
+
+        <div class="form-group">
+        Available from:
+        <br>
+        <input id='start_date' type="date" name="startdate" />
+        </div>
+
+
+        <div class="form-group">
+        Available until:
+        <br>
+        <input id='end_date' type="date" name="enddate" />
+        </div>
+
+
+        <div class="form-group">
+        <input id='list_space' type="submit" value="List Space" style="padding: 10px; margin-bottom: 20px" />
+        </div>
+    </center>
+</form>
+    
+</body>
+
+
+
+
+</html>
