@@ -116,5 +116,10 @@ Bookings:
 |    |            |             |          |             |           |                |             |              |  
 
 
+## <a name="Contributors">Contributors</a>
 
+* [Raluca Ciucu](https://github.com/IngramCapa)
+* [Shafique Mohammed](https://github.com/shafali03)
+* [Jonathan Palma](https://github.com/JonathanPalma-code)
+* [Ben Sheridan-Edwards](https://github.com/BenSheridanEdwards)
 
