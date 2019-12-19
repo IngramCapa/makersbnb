@@ -3,7 +3,7 @@
 Makers AirBnb Challenge 
 -
 
-[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story)| [Technologies used](#Technologies) | [Database Setup](#Database) | [Tables](#Tables) |[Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
+[Outline](#Outline) | [Task](#Task) | [Installation Instructions](#Installation) | [User Stories](#Story)| [Technologies used](#Technologies) | [Database Setup](#Database) | [Tables](#Tables) |[Contributors](#Contributors) |[Objects & Methods](#Methods) | [Feature Tests](#Feature_Tests) 
 
 ## <a name="Outline">Outline</a>
  
@@ -116,5 +116,10 @@ Bookings:
 |    |            |             |          |             |           |                |             |              |  
 
 
+## <a name="Contributors">Contributors</a>
 
+* [Raluca Ciucu](https://github.com/IngramCapa)
+* [Shafique Mohammed](https://github.com/shafali03)
+* [Jonathan Palma](https://github.com/JonathanPalma-code)
+* [Ben Sheridan-Edwards](https://github.com/BenSheridanEdwards)
 
