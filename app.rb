@@ -4,6 +4,8 @@ require_relative './lib/bookings.rb'
 require_relative './lib/requests.rb'
 require_relative './lib/user.rb'
 require_relative './lib/property.rb'
+require_relative './lib/requests.rb'
+require_relative './lib/holidays.rb'
 
 class MakersAirBnB < Sinatra::Base
 
@@ -49,6 +51,12 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/spaces/dates' do
+    erb :calendar
+  end
+
+  post '/dates' do
+    $holiday = Holidays.new(params['startdate'], params['enddate'], 1)
+    redirect '/spaces'
   end
 
   get '/requests' do
