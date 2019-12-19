@@ -1,6 +1,4 @@
-
-    // Creating Columns
-    * {
+  * {
       box-sizing: border-box;
     }
 
@@ -23,11 +21,6 @@
       text-align: center;
     }
 
-
-    // Requests Box
-    $pri: #128CFC;
-    $sec: #fffffe;
-    $dark-pri: #0B5AA2;
     * {
       box-sizing: border-radius;
       font-family: 'Rubik', sans-serif;
@@ -46,9 +39,9 @@
 
     .items {
       width: 300px;
-      background: $sec;
+      background: blue;
       box-shadow: 0 3px 6px rgba(black,0.16), 0 3px 6px rgba(black,0.23);
-      border-top: 10px solid $dark-pri;
+      border-top: 10px solid
     }
 
     .items-head p{
@@ -62,7 +55,7 @@
     .items-head hr {
       width: 20%;
       margin: 0px 30px;
-      border: 1px solid $dark-pri;
+      border: 1px solid
     }
 
     .items-body {
@@ -94,7 +87,5 @@
     .items-body-content i {
       align-self: center;
       font-size: 15px;
-      color: $dark-pri;
       font-weight: bold;
-      animation: icon 1.5s infinite forwards;
     }
