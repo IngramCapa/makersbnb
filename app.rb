@@ -6,10 +6,6 @@ require_relative './lib/requests.rb'
 class MakersAirBnB < Sinatra::Base
 
   get '/' do
-    @bookings = Bookings.new
-    @user_id = 1
-    @requests = Requests.new(@user_id)
-    erb :dick
   end
 
   post '/' do
