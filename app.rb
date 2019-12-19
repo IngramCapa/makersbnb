@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require_relative './lib/user.rb'
 require_relative './lib/bookings.rb'
+require_relative './lib/user.rb'
 require_relative './lib/property.rb'
+require_relative './lib/requests.rb'
 
 class MakersAirBnB < Sinatra::Base
 
@@ -11,6 +13,10 @@ class MakersAirBnB < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    @@user = User.new(params['name'], params['password'], params['email'])
+  end
+  
   post '/sign_up' do
     user = User.sign_up(name: params['name'], email: params['email'], password: params['password'])
     session[:user_id] = user.id
@@ -21,7 +27,6 @@ class MakersAirBnB < Sinatra::Base
     erb :sign_in
   end
 
-  # added
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
     session[:user_id] = user.id
@@ -43,7 +48,9 @@ class MakersAirBnB < Sinatra::Base
 
   get '/requests' do
     @bookings = Bookings.new
-    erb :'requests'
+    @user_id = 1
+    @requests = Requests.new(@user_id)
+    erb :requests
   end
 
   get '/requests/confirm' do
