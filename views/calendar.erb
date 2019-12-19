@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <%# <script src="../js/jquery_test.js"></script> %>
 
   <script>
 
@@ -20,12 +19,17 @@
     $("#startdate").datepicker({ 
       dateFormat: "dd/mm/yy",
       minDate: 0,
-      datesDisabled: disableDates
+      disable: [
+        {from: [20,12,2019], to: [22,12,2019]}
+      ]
       })
 
     $("#enddate").datepicker({ 
       dateFormat: "dd/mm/yy",
       minDate: 0
+      disable: [
+        {from: [20,12,2019], to: [22,12,2019]}
+      ]
       })
   })
   
@@ -38,7 +42,6 @@
 <input type="text" id="startdate" name="startdate">
 <h3>End Date</h3>
 <input type="text" id="enddate" name="enddate">
-<%# <input id ='dt'> %>
 <input type="submit" name="submitDates" value="Book a date" </input>
 </head>
 </form>
