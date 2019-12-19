@@ -141,25 +141,29 @@
       <div class="column" style="background-color:white; border: solid; padding: 20px">
         <h2 style="text-align: center;">Requests Made</h2>
         
-        <div class="items-body">
-          <div class="items-body-content">
-            <span>
-              <%= @bookings.requests[0] %> <br>
-              Not Confirmed <br>
-              <%= @bookings.time %>
-            </span>
-            <i class="fa fa-angle-right"></i>
-          </div>
-        </div>
+        <% @requests.my_booking_requests.map do |booking| %>
 
         <div class="items-body">
+                  <div class="items-body-content">
+                    <span>
+                      <%="<p>#{@requests.property_name(booking['prop_id'])[0]["prop_name"]}</p>"%>
+
+                      <%="<p>#{@requests.confirmation(@requests.confirmed?(booking['id'])[0]["confirmation"])}</p>"%>
+
+                      <%="#{@requests.date_converter(@requests.start_date(booking['id'])[0]["startdate"])}  - #{@requests.date_converter(@requests.end_date(booking['id'])[0]["enddate"])}"%>
+                    </span>
+                  </div>
+                </div>
+        <% end %>
+
+         <div class="items-body">
           <div class="items-body-content">
             <span>
               <%= @bookings.requests[1] %> <br>
               Not Confirmed <br>
               <%= @bookings.time %>
-              <i class="fa fa-angle-right"></i>
             </span>
+            <i class="fa fa-angle-right"></i>
           </div>
         </div>
 
@@ -178,16 +182,20 @@
       <div class="column" style="background-color:white; border: solid; padding: 20px;">
         <h2 style="text-align: center;">Requests Received</h2>
 
+            <% @requests.my_space_requests.map do |booking| %>
+
         <div class="items-body">
-          <div class="items-body-content">
-            <span>
-              <%= @bookings.requests[0] %> <br>
-              Not Confirmed <br>
-              <%= @bookings.time %>
-            </span>
-            <i class="fa fa-angle-right"></i>
-          </div>
-        </div>
+                  <div class="items-body-content">
+                    <span>
+                      <%="<p>#{@requests.property_name(booking['prop_id'])[0]["prop_name"]}</p>"%>
+            
+                      <%="<p>#{@requests.confirmation(@requests.confirmed?(booking['id'])[0]["confirmation"])}</p>"%>
+
+                      <%="#{@requests.date_converter(@requests.start_date(booking['id'])[0]["startdate"])}  - #{@requests.date_converter(@requests.end_date(booking['id'])[0]["enddate"])}"%>
+                    </span>
+                  </div>
+                </div>
+        <% end %>
 
         <div class="items-body">
           <div class="items-body-content">
