@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative './lib/user.rb'
 require_relative './lib/bookings.rb'
+require_relative './lib/requests.rb'
 require_relative './lib/user.rb'
 require_relative './lib/property.rb'
 require_relative './lib/requests.rb'
@@ -24,6 +25,11 @@ class MakersAirBnB < Sinatra::Base
     redirect '/spaces'
   end
 
+  post '/' do
+    @@user = User.new(params['name'], params['password'], params['email'])
+    redirect '/spaces'
+  end
+
   get '/sessions/new' do
     erb :sign_in
   end
@@ -34,8 +40,8 @@ class MakersAirBnB < Sinatra::Base
     redirect('/spaces')
   end
 
-
   get '/spaces' do 
+    erb :'spaces'
     @properties = Property.all
     erb :spaces
   end
@@ -61,6 +67,7 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/requests/confirm' do
+    erb :confirmation
   end
 
   run! if app_file == $0
