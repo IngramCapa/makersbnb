@@ -89,3 +89,15 @@
       font-size: 15px;
       font-weight: bold;
     }
+
+    a:link {
+      color: red;
+    }
+    
+    a:hover {
+      color: blue;
+    }
+    
+    a:active {
+      color: green;
+    }

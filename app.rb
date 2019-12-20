@@ -66,11 +66,15 @@ class MakersAirBnB < Sinatra::Base
     @requests = Requests.new(@user_id)
     erb :requests
   end
-
-  get '/requests/confirm' do
+  
+  get '/requests/confirmation/:id' do
+    @selected_booking_id = params["id"]
+    @bookings = Bookings.new
+    @@user_id = 1
+    @requests = Requests.new(@user_id)
     erb :confirmation
   end
-
+  
   get '/api/properties' do
     from = DateTime.parse(params[:datefrom])
     to = DateTime.parse(params[:dateto])
@@ -85,6 +89,32 @@ class MakersAirBnB < Sinatra::Base
     end
 
     available_properties.map(&:to_hash).to_json
+  end
+
+  get '/requests/confirmation/yes/:id' do
+    @bookings = Bookings.new
+    @user_id = 1
+    @requests = Requests.new(@user_id)
+    erb :requests
+  end
+
+  get '/requests/confirmation/no/:id' do
+    @bookings = Bookings.new
+    @user_id = 1
+    @requests = Requests.new(@user_id)
+    erb :requests
+  end
+
+  post '/requests/confirmation/yes/:id' do
+    @requests = Requests.new(@@user_id)
+    @requests.confirmation_yes(params["id"])
+    redirect '/requests'
+  end
+
+  post '/requests/confirmation/no/:id' do
+    @requests = Requests.new(@@user_id)
+    @requests.confirmation_no(params["id"])
+    redirect '/requests'
   end
 
   run! if app_file == $0
