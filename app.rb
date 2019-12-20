@@ -100,6 +100,18 @@ class MakersAirBnB < Sinatra::Base
     redirect '/requests'
   end
 
+  get 'spaces/dates/:id' do
+   @current_booking_id = params["id"]
+   erb :calendar2
+  end
+
+  post 'spaces/dates/:id'
+    @current_booking_id = params["id"]
+    @bookings = Bookings.new
+    @bookings.change_booking_start_date(@current_booking_id, params['startdate'])
+    @bookings.change_booking_end_date(@current_booking_id,  params['enddate'])
+    redirect '/requests'
+  end
 
   run! if app_file == $0
 end
