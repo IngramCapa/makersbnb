@@ -17,5 +17,10 @@ feature "viewing properties" do
   
       expect(page).to have_content("makers house")
     end
+
+    scenario "a logged in user can navigate to 'list a space' form" do
+        visit '/spaces'
+        click_on("List a Space")
+        expect(current_path).to eq '/spaces/new'
   end
-  
+end  
