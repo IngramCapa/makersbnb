@@ -7,8 +7,7 @@ require_relative './lib/requests.rb'
 require_relative './lib/user.rb'
 require_relative './lib/property.rb'
 require_relative './lib/holidays.rb'
-require_relative './lib/change_booking.rb'
-require_relative './lib/test.rb'
+require_relative './lib/change_bookings.rb'
 
 class MakersAirBnB < Sinatra::Base
 
@@ -108,14 +107,12 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/requests/confirmation/yes/:id' do
-    @bookings = ChangeBookings.new
     @user_id = 1
     @requests = Requests.new(@user_id)
     erb :requests
   end
 
   get '/requests/confirmation/no/:id' do
-    @bookings = ChangeBookings.new
     @user_id = 1
     @requests = Requests.new(@user_id)
     erb :requests
@@ -136,12 +133,12 @@ class MakersAirBnB < Sinatra::Base
   get '/spaces/dates/:id' do
    @@current_booking_id = params["id"]
    @bookings = Booking.new
-   erb :calendar2
+   erb :calendar
   end
 
   post '/spaces/dates/:id' do
     @@current_booking_id = params["id"]
-    @bookings = Booking.new()
+    @bookings = ChangeBookings.new()
     @bookings.change_booking_start_date(@@current_booking_id, @bookings.date_converter(params['startdate']))
     @bookings.change_booking_end_date(@@current_booking_id,  @bookings.date_converter(params['enddate']))
     redirect 'requests'

@@ -1,11 +1,17 @@
 require 'pg'
 
-class Booking
+class ChangeBookings
 
   CONNECTION = PG.connect(dbname: 'makersbnb')
 
   def initialize(user_id = 1)
     @user_id = user_id
+  end
+
+  def booking_property_name(booking_id)
+    prop_id = CONNECTION.exec("SELECT prop_id FROM bookings WHERE id='#{booking_id}'")
+    prop_name = CONNECTION.exec("SELECT prop_name FROM bookings WHERE id='#{prop_id[0]["prop_id"]}'")
+    return prop_name[0]["prop_name"]
   end
 
   def change_booking_start_date(booking_id, date)
