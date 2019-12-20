@@ -44,9 +44,7 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/spaces' do 
-    erb :'spaces'
     @properties = Property.all
-    @bookings = ChangeBookings.new
     erb :spaces
   end
 
