@@ -26,19 +26,15 @@
   })
   
   </script>
-
 </head>
 <body>
 <option value="yy-mm-dd"></option>
-<form action='/dates' method="post">
+<form action='/spaces/dates/<%=@@current_booking_id%>' method="POST">
 <h3>Start Date</h3>
 <input type="text" id="startdate" name="startdate">
 <h3>End Date</h3>
 <input type="text" id="enddate" name="enddate">
 <input type="submit" name="submitDates" value="Book a date" </input>
-
-
-
 </head>
 </form>
 </body>

@@ -7,6 +7,8 @@ require_relative './lib/requests.rb'
 require_relative './lib/user.rb'
 require_relative './lib/property.rb'
 require_relative './lib/holidays.rb'
+require_relative './lib/change_booking.rb'
+require_relative './lib/test.rb'
 
 class MakersAirBnB < Sinatra::Base
 
@@ -44,6 +46,7 @@ class MakersAirBnB < Sinatra::Base
   get '/spaces' do 
     erb :'spaces'
     @properties = Property.all
+    @bookings = ChangeBookings.new
     erb :spaces
   end
 
@@ -53,15 +56,17 @@ class MakersAirBnB < Sinatra::Base
 
   get '/spaces/dates' do
     erb :calendar
+    @bookings = ChangeBookings.new
   end
 
   post '/dates' do
     $holiday = Holidays.new(params['startdate'], params['enddate'], 1)
+    @bookings = ChangeBookings.new
     redirect '/spaces'
   end
 
   get '/requests' do
-    @bookings = Bookings.new
+    @bookings = ChangeBookings.new
     @user_id = 1
     @requests = Requests.new(@user_id)
     erb :requests
@@ -69,7 +74,7 @@ class MakersAirBnB < Sinatra::Base
   
   get '/requests/confirmation/:id' do
     @selected_booking_id = params["id"]
-    @bookings = Bookings.new
+    @bookings = ChangeBookings.new
     @@user_id = 1
     @requests = Requests.new(@user_id)
     erb :confirmation
@@ -92,14 +97,14 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/requests/confirmation/yes/:id' do
-    @bookings = Bookings.new
+    @bookings = ChangeBookings.new
     @user_id = 1
     @requests = Requests.new(@user_id)
     erb :requests
   end
 
   get '/requests/confirmation/no/:id' do
-    @bookings = Bookings.new
+    @bookings = ChangeBookings.new
     @user_id = 1
     @requests = Requests.new(@user_id)
     erb :requests
@@ -117,18 +122,25 @@ class MakersAirBnB < Sinatra::Base
     redirect '/requests'
   end
 
-  get 'spaces/dates/:id' do
-   @current_booking_id = params["id"]
+  get '/spaces/dates/:id' do
+   @@current_booking_id = params["id"]
+   @bookings = Booking.new
    erb :calendar2
   end
 
-  post 'spaces/dates/:id'
-    @current_booking_id = params["id"]
-    @bookings = ChangeBookings.new
-    @bookings.change_booking_start_date(@current_booking_id, params['startdate'])
-    @bookings.change_booking_end_date(@current_booking_id,  params['enddate'])
-    redirect '/requests'
+  post '/spaces/dates/:id' do
+    @@current_booking_id = params["id"]
+    @bookings = Booking.new()
+    @bookings.change_booking_start_date(@@current_booking_id, @bookings.date_converter(params['startdate']))
+    @bookings.change_booking_end_date(@@current_booking_id,  @bookings.date_converter(params['enddate']))
+    redirect 'requests'
   end
+
+  get '/spaces/dates/:id' do
+    @@current_booking_id = params["id"]
+    @bookings = ChangeBookings.new
+    erb :calendar
+   end
 
   run! if app_file == $0
 end
