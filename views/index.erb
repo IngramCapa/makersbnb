@@ -1,0 +1,148 @@
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Makers AirBnB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/spaces">Spaces</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/requests">Requests</a>
+          </li>
+        </ul>
+        <form class="nav-item-sign-up" style="padding-right: 10px;">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/" role="button">Sign Up</a>
+        </form>
+        <br>
+        <form class="nav-item-sign-up">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/sessions/new" role="button">Sign In</a>
+        </form>
+      </div>
+    </nav>
+
+</head>
+
+<!-- main css -->
+    <link rel="stylesheet" href="main.css">
+
+<body>
+  
+
+
+
+<style>
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+.section-contact {
+  background-color: #e5e6e4;
+  background-size: cover;
+  padding: 40px 0;
+  color: #000;
+  overflow: hidden;
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 2rem 0;
+  border: 0;
+  background: #111;
+  padding: 20px 40px;
+  outline: none;
+  color: #ddd;
+  transition: 0.5s;
+}
+
+input:focus {
+  box-shadow: 0 0 10px 4px #34455e;
+}
+
+.btn-ghost,
+button {
+  border: 0;
+  padding: 1rem 2rem;
+  background-color: #445ae3;
+  border-radius: 2rem;
+  margin: 1rem;
+  width: 17rem;
+
+  color: #eee;
+  font-size: 1.4rem;
+  transition: 0.5s;
+}
+
+button:hover {
+  background: #1be42f;
+  cursor: pointer;
+  transition: 1s;
+}
+
+</style>
+
+  
+<section class="section-contact" id='contact'>
+
+<form class="contact-form" action="/sign_up" method="POST">
+ <h1>Sign Up</h1>
+  <p>Please fill in this form to create an account.</p>
+  <hr>
+
+  <label for="name"><b>Name</b></label>
+  <input type="text" placeholder="Name" name="name" required>
+
+  <label for="email"><b>Email</b></label>
+  <input type="text" placeholder="Enter Email" name="email" required>
+
+  <label for="password"><b>Password</b></label>
+  <input type="password" placeholder="Enter Password" name="password" required>
+
+ 
+  <button type="submit" class="contact-form-btn" value="Submit">Submit</button>
+
+
+</form>
+ </section>
+
+
+
+</body>
+</html>
