@@ -61,7 +61,6 @@ class MakersAirBnB < Sinatra::Base
       enddate: params['enddate'],
       # user_id: session[:user_id]
     )
-
     redirect :spaces
   end
 
