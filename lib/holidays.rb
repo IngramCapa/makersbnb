@@ -2,7 +2,7 @@ require 'date'
 # require class Property to get the price of it
 
 class Holidays #Booking Class
-  attr_reader :startDate, :endDate, :price
+  attr_reader :startDate, :endDate, :totalprice, :calculateNight
 
   def initialize(startDate, endDate, price)
     @startDate = Date.parse(startDate)
