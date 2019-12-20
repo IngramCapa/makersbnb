@@ -26,7 +26,7 @@ class MakersAirBnB < Sinatra::Base
       price_per_night: params['price_per_night'], 
       startdate: params['startdate'], 
       enddate: params['enddate'],
-      user_id: session[:user_id]
+      # user_id: session[:user_id]
     )
 
     redirect :spaces
