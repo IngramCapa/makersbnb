@@ -28,17 +28,52 @@
 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="stylesheets/requests.css">
   </head>
   <body style='text-align: center;'>
   
-  <h1>"Request for <%= @requests.property_name(booking['prop_id']) %>"</h1>
+  <h1>Request for <%= @requests.property_name(@selected_booking_id)[0]["prop_name"]%></h1>
 
-  <h3> "<%= @requests.property_description(booking['prop_id']) %>" </h3>
+  <h4 style="padding-top:20px"><%= @requests.property_description(@selected_booking_id)[0]["prop_description"]%> </h4>
 
-  <p> <%=
+
+  <p style="padding-top: 20px"> <%="From: #{@requests.client_name(@selected_booking_id)[0]["user_name"]}"%></p>
+
+
+  <p> <%="Dates requested: #{@requests.date_converter(@requests.start_date(@selected_booking_id))} - #{@requests.date_converter(@requests.end_date(@selected_booking_id))}"%> </p>
+
+  <p> <%="No. of Bookings: #{@requests.number_of_bookings(@selected_booking_id)}"%> </p>
+
+      <div class="column" style="background-color:white; border: solid; padding: 20px; align: center;">
+          <h4> Other Requests for this space </h4>
+        
+        <% @requests.my_selected_space_requests(@selected_booking_id).map do |booking| %>
+
+        <div class="items-body">
+                  <div class="items-body-content" href="/requests/confirmation">
+          
+                <span>
+                      <%="<p>#{@requests.property_name(booking['id'])[0]["prop_name"]}</p>"%>
+
+                      <p><%="From: #{@requests.client_name(@selected_booking_id)[0]["user_name"]}"%></p>
+
+                      <%="<p>#{@requests.confirmation(@requests.confirmed?(booking['id'])[0]["confirmation"])}</p>"%>
+
+                      <%="#{@requests.date_converter(@requests.start_date(booking['id']))}  - #{@requests.date_converter(@requests.end_date(booking['id']))}"%>
+                </span>
+                  </div>
+                </div>
+                </div>
+                </div>
+        <% end %>
+
+        <form style="padding-top: 20px" action="/requests/confirmation/yes/<%=@selected_booking_id%>" method="POST">
+        <input type="submit" name="confirm request" value="Confirm Request from <%="#{@requests.client_name(@selected_booking_id)[0]["user_name"]}"%>">
+        </form>
+
+        <form action="/requests/confirmation/no/<%=@selected_booking_id%>" method="POST">
+        <input type="submit" name="deny request" value="Deny Request from <%="#{@requests.client_name(@selected_booking_id)[0]["user_name"]}"%>">
+        </form>
 
   </body>
-
-
-
 </html>
