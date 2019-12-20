@@ -1,6 +1,32 @@
 <html>
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#check-spaces').click(function() {
+        let fromDate = $('#from-date').val()
+        let toDate = $('#to-date').val()
+        $.get('/api/properties', { datefrom: fromDate, dateto: toDate }, function(data) {
+
+          $('#properties_list').empty()
+
+          let filteredProperties = JSON.parse(data).forEach(function(property) {
+            $('#properties_list').append(`<li class='property' id='property-${property.id}'>
+              <p><b><font size="+2">${property.prop_name}</font></b></p>
+              <p><font size="+1">Description: ${property.prop_description}</font></p>
+              <p>Price: £${property.price_per_night}/night</p>
+              <p>Available from: ${property.startdate}</p>
+              <p>Available until: ${property.enddate}></p>
+            </li>`)
+          })
+
+
+        })
+      })
+    })
+  </script>
+
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Makers AirBnB</a>
@@ -148,10 +174,10 @@
         <center>
             <div class="date" style="padding: 20px">
                 Available from:
-                <input type="date" name="from_date" style="margin-right: 10px">
+                <input id='from-date' type="date" name="from_date" style="margin-right: 10px">
                 Available until:
-                <input type="date" name="until_date" style="margin-right: 10px">
-                <input type="submit" value="Show Spaces">
+                <input id='to-date' type="date" name="until_date" style="margin-right: 10px">
+                <input id='check-spaces' type="submit" value="Show Spaces">
                 </form>
             </div>
 
@@ -161,7 +187,7 @@
             <div class="column" style="background-color:white; border: solid; padding: 20px; padding-right: 30px; margin-left: 250px; margin-right: 250px">
                 <ul style="list-style-type:none">
                     <div class="items-body">
-                        <div class="items-body-content">
+                        <div id='properties_list' class="items-body-content">
                                     <% @properties.each do |property| %>
                                         <li class="property" id="property-<%= property.id %>">
                                             <p><b><font size="+2"><%= property.prop_name %></font></b></p>

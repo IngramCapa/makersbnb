@@ -1,10 +1,11 @@
 require 'sinatra/base'
+require 'date'
+require 'json'
 require_relative './lib/user.rb'
 require_relative './lib/bookings.rb'
 require_relative './lib/requests.rb'
 require_relative './lib/user.rb'
 require_relative './lib/property.rb'
-require_relative './lib/requests.rb'
 require_relative './lib/holidays.rb'
 
 class MakersAirBnB < Sinatra::Base
@@ -73,6 +74,22 @@ class MakersAirBnB < Sinatra::Base
     @requests = Requests.new(@user_id)
     erb :confirmation
   end
+  
+  get '/api/properties' do
+    from = DateTime.parse(params[:datefrom])
+    to = DateTime.parse(params[:dateto])
+    requested_dates = Array(from..to)
+    
+    available_properties = Property.all.select do |p|
+      prop_start_date = DateTime.parse(p.startdate)
+      prop_end_date = DateTime.parse(p.enddate)
+      available_dates = Array(prop_start_date..prop_end_date)
+      
+      requested_dates.all? { |date| available_dates.include? date }
+    end
+
+    available_properties.map(&:to_hash).to_json
+  end
 
   get '/requests/confirmation/yes/:id' do
     @bookings = Bookings.new
@@ -99,7 +116,6 @@ class MakersAirBnB < Sinatra::Base
     @requests.confirmation_no(params["id"])
     redirect '/requests'
   end
-
 
   run! if app_file == $0
 end

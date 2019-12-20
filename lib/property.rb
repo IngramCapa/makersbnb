@@ -14,6 +14,17 @@ class Property
         @enddate = enddate
     end
 
+    def to_hash
+        {
+            id: id,
+            prop_name: prop_name,
+            prop_description: prop_description,
+            price_per_night: price_per_night,
+            startdate: startdate,
+            enddate: enddate
+        }
+    end
+
     def self.all
 
         connection = db_connection
