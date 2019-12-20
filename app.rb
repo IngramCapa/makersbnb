@@ -49,7 +49,20 @@ class MakersAirBnB < Sinatra::Base
   end
 
   get '/spaces/new' do
+    erb :new_spaces
+  end
 
+  post '/spaces/new' do
+    
+    Property.create(prop_name: params['prop_name'], 
+      prop_description: params['prop_description'], 
+      price_per_night: params['price_per_night'], 
+      startdate: params['startdate'], 
+      enddate: params['enddate'],
+      # user_id: session[:user_id]
+    )
+
+    redirect :spaces
   end
 
   get '/spaces/dates' do
