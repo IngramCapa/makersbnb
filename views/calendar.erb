@@ -13,27 +13,20 @@
 
   <script>
 
-  var disableDates = ['20/12/2019', '21/12/2019', '25/12/2019']
-
   $( function() {
     $("#startdate").datepicker({ 
       dateFormat: "dd/mm/yy",
-      minDate: 0,
-      disable: [
-        {from: [20,12,2019], to: [22,12,2019]}
-      ]
+      minDate: 0
       })
 
     $("#enddate").datepicker({ 
       dateFormat: "dd/mm/yy",
       minDate: 0
-      disable: [
-        {from: [20,12,2019], to: [22,12,2019]}
-      ]
       })
   })
   
   </script>
+
 </head>
 <body>
 <option value="yy-mm-dd"></option>
@@ -43,6 +36,9 @@
 <h3>End Date</h3>
 <input type="text" id="enddate" name="enddate">
 <input type="submit" name="submitDates" value="Book a date" </input>
+
+
+
 </head>
 </form>
 </body>

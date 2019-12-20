@@ -1,0 +1,9 @@
+       <% @properties.each do |property| %>
+                                        <li class="property" id="property-<%= property.id %>">
+                                            <p><b><font size="+2"><%= property.prop_name %></font></b></p>
+                                            <p><font size="+1">Description: <%= property.prop_description%></font></p>
+                                            <p>Price: £<%= property.price_per_night%>/night</p>
+                                            <p>Available from: <%= property.startdate%></p>
+                                            <p>Available until: <%= property.enddate%></p>
+                                        </li>
+                                    <% end %>  
