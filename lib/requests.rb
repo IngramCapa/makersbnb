@@ -34,10 +34,23 @@ class Requests
     return my_booking_requests
   end
 
-  def property_name(property_ID)
-    property_ID = 1
-    property_name = CONNECTION.exec("SELECT prop_name FROM properties WHERE id='#{property_ID}'")
+  def my_selected_space_requests(booking_id)
+    prop_id = CONNECTION.exec("SELECT prop_id FROM bookings WHERE id='#{booking_id}'")
+    my_selected_space_requests = CONNECTION.exec("SELECT id FROM bookings WHERE prop_id='#{prop_id[0]["prop_id"]}'")
+    return my_selected_space_requests
+  end
+
+
+  def property_name(booking_id)
+    property_id = CONNECTION.exec("SELECT prop_id FROM bookings WHERE id='#{booking_id}'")
+    property_name = CONNECTION.exec("SELECT prop_name FROM properties WHERE id='#{property_id[0]["prop_id"]}'")
     return property_name
+  end
+
+  def property_description(booking_id)
+    property_id = CONNECTION.exec("SELECT prop_id FROM bookings WHERE id='#{booking_id}'")
+    property_description = CONNECTION.exec("SELECT prop_description FROM properties WHERE id='#{property_id[0]["prop_id"]}'")
+    return property_description
   end
 
   def confirmed?(booking_id)
@@ -50,13 +63,34 @@ class Requests
     return "Not Confirmed" if confirmed == "f"
   end
 
+  def confirmation_yes(booking_id)
+    CONNECTION.exec("UPDATE bookings SET Confirmation = 'TRUE' WHERE id='#{booking_id}'")
+  end
+
+  def confirmation_no(booking_id)
+    CONNECTION.exec("UPDATE bookings SET Confirmation = 'FALSE' WHERE id='#{booking_id}'")
+  end
+
   def start_date(booking_id)
     start_date = CONNECTION.exec("SELECT startdate FROM bookings WHERE id='#{booking_id}'")
-    return start_date
+    return start_date[0]["startdate"]
   end
 
   def end_date(booking_id)
     end_date = CONNECTION.exec("SELECT enddate FROM bookings WHERE id='#{booking_id}'")
+    return end_date[0]["enddate"]
+  end
+
+  def client_name(booking_id)
+    client_id = CONNECTION.exec("SELECT client_id FROM bookings WHERE id='#{booking_id}'")
+    user_name = CONNECTION.exec("SELECT user_name FROM users WHERE id='#{client_id[0]["client_id"]}'")
+    return user_name
+  end
+
+  def number_of_bookings(booking_id)
+    client_id = CONNECTION.exec("SELECT client_id FROM bookings WHERE id='#{booking_id}'")
+    booking_count = CONNECTION.exec("SELECT COUNT(id) FROM bookings WHERE id='#{client_id[0]["client_id"]}'")
+    return booking_count[0]["count"].to_i
   end
 
   def date_converter(date)
