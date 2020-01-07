@@ -31,9 +31,9 @@
 <option value="yy-mm-dd"></option>
 <form action='/spaces/dates/<%=@@current_booking_id%>' method="POST">
 <h3>Start Date</h3>
-<input type="text" id="startdate" name="startdate">
+<input type="text" id="startdate" name="startdate" required >
 <h3>End Date</h3>
-<input type="text" id="enddate" name="enddate">
+<input type="text" id="enddate" name="enddate" required>
 <input type="submit" name="submitDates" value="Book a date" </input>
 </head>
 </form>
