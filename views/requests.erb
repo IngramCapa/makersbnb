@@ -15,35 +15,45 @@
             <a class="nav-link" href="/requests">Requests</a>
           </li>
         </ul>
-        <form class="nav-item-sign-up" style="padding-right: 10px;">
-        <a class="btn btn-outline-success my-2 my-sm-0" href="/" role="button">Sign Up</a>
-        </form>
-        <br>
-        <form class="nav-item-sign-up">
-        <a class="btn btn-outline-success my-2 my-sm-0" href="/sessions/new" role="button">Sign In</a>
+        <form class="nav-item-sign-out">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/" role="button">Sign Out</a>
         </form>
       </div>
     </nav>
 
+    <link rel="stylesheet" href="stylesheets/requests.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/requests.css">
+    
+    <style>
 
+    .container {
+      display: flex;
+      padding: 1em;
+      background-color: hsl(2002, 55%, 55%);
+    }
+
+    .item {
+      flex: 1;
+
+      padding: 1em;
+      margin: .6em;
+      background-color: white;
+    }
+    </style>
 
   </head>
   
-  <body class="body">
+  <body>
 
-<
-    <br>
-    <br>
-    <h1 class="header">Requests</h1>
-    <br>
-    <br>
-    <div class="column" style="background-color:white; border: solid; padding: 20px; padding-right: 30px; margin-left: 480px; margin-right: 250px">
+    <h1 style="text-align: center; padding: 10px;"> Requests </h1>
+
+    <section class="container">
+
+      <article class="item"> 
         <h2 style="text-align: center;">Requests Made</h2>
         
-        <% @requests.my_booking_requests.map do |booking| %>
+         <% @requests.my_booking_requests.map do |booking| %>
 
         <div class="items-body">
                   <div class="items-body-content" href="/requests/confirmation">
@@ -58,9 +68,11 @@
                   </div>
                 </div>
         <% end %>
+      </article>
 
-    
-      <h2 style="text-align: center;">Requests Received</h2>
+      <article class="item">
+
+       <h2 style="text-align: center;">Requests Received</h2>
 
             <% @requests.my_space_requests.map do |booking| %>
 
@@ -76,10 +88,9 @@
                   </div>
           </div>
         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
+      </article>
+
+    </section>
   </body>
 </html>
